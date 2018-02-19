@@ -7,7 +7,7 @@ tags:
 - Hexo
 - Git
 - Github
-thumbnail: /css/images/post/post_2018_02_20_hexo.png
+thumbnail: https://dindin00.github.io/PavingRoadOfTheCode/css/images/post/post_2018_02_20_hexo.png
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
