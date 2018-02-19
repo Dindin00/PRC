@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-language:
+title: 鋪碼路
+subtitle: Paving Road of the Code
+description: 在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。
+author: LI-ZHI
+language: zh-TW
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://dindin00.github.io/PavingRoadOfTheCode/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
