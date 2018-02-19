@@ -3,26 +3,28 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | Hexo</title>
+    <title>如何利用Hexo建立個人部落格 | 鋪碼路</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="Hexo,Git,Github" />
     
     <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="keywords" content="Hexo,Git,Github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/02/20/hello-world/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:title" content="如何利用Hexo建立個人部落格">
+<meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/02/20/hello-world/index.html">
+<meta property="og:site_name" content="鋪碼路">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2018-02-19T20:16:18.945Z">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://dindin00.github.io/css/images/post/post_2018_02_20_hexo.png">
+<meta property="og:updated_time" content="2018-02-19T22:10:26.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
+<meta name="twitter:title" content="如何利用Hexo建立個人部落格">
 <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:image" content="https://dindin00.github.io/css/images/post/post_2018_02_20_hexo.png">
     
 
-    
-        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
     
 
     
@@ -58,6 +60,10 @@
                         <a href="../../../../index.html" class="logo"></a>
                     </h1>
                     
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Paving Road of the Code</p>
+                        </h2>
+                    
                 </div>
                 <div id="header-inner" class="nav-container">
                     <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
@@ -65,13 +71,19 @@
                         <ul id="main-nav">
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="../../../../index.html">Inici</a>
+                                    <a class="main-nav-list-link" href="../../../../index.html">首頁</a>
                                 </li>
                             
-                                        
-                                    
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="../../../../about/index.html">Quant a</a>
+                                    <a class="main-nav-list-link" href="../../../../archives">記錄</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../work/index.html">作品</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../about/index.html">關於</a>
                                 </li>
                             
                         </ul>
@@ -79,14 +91,14 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字(程式,技術...)" />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -98,11 +110,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'categories',
-            TAGS: 'etiquetes',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '../../../../content.json',
@@ -127,7 +139,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    Sense categoria
+    <a class="page-title-link" href="../../../../categories/自主學習/">自主學習</a>
     </h1>
 </div>
                         <div class="main-body-content">
@@ -138,7 +150,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-        Hello World
+        如何利用Hexo建立個人部落格
         </h1>
     
 
@@ -149,11 +161,16 @@
                 
     <div class="article-date">
         <a href="" class="article-date">
-            <time datetime="2018-02-19T20:16:18.945Z" itemprop="datePublished">2018-02-20</time>
+            <time datetime="2018-02-19T20:16:31.000Z" itemprop="datePublished">2018-02-20</time>
         </a>
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../tags/Git/">Git</a>, <a class="tag-link" href="../../../../tags/Github/">Github</a>, <a class="tag-link" href="../../../../tags/Hexo/">Hexo</a>
+    </div>
+
             </div>
         
         
@@ -174,7 +191,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2018/02/20/hello-world/" data-id="cjduojwo500004ci275olu9vy" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/02/20/hello-world/" data-id="cjdurfo7m0000uwi2gxlosm88" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -240,12 +257,6 @@
 
     <section id="comments">
     
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
     </section>
 
 
@@ -254,55 +265,25 @@
                     <aside id="sidebar">
     <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
     <div class="sidebar-top">
-        <p>seguir:</p>
+        <p>追蹤 :</p>
         <ul class="social-links">
             
                 
-                <li>
-                    <a class="social-tooltip" title="twitter" href="../../../../index.html" target="_blank">
-                        <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
+            
+                
+            
                 
             
                 
                 <li>
-                    <a class="social-tooltip" title="facebook" href="../../../../index.html" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="google-plus" href="../../../../index.html" target="_blank">
-                        <i class="icon fa fa-google-plus"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                    <a class="social-tooltip" title="github" href="https://github.com/Dindin00" target="_blank">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>
                 
             
                 
-                <li>
-                    <a class="social-tooltip" title="weibo" href="../../../../index.html" target="_blank">
-                        <i class="icon fa fa-weibo"></i>
-                    </a>
-                </li>
-                
             
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="../../../../index.html" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
                 
             
         </ul>
@@ -315,7 +296,7 @@
             
                 
     <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
+        <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -325,7 +306,7 @@
                             <a href="" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/css/images/post/post_2018_02_20_hexo.png)" alt="如何利用Hexo建立個人部落格" class="thumbnail-image"></span>
     
     
 </a>
@@ -333,9 +314,9 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2018-02-19T20:16:18.945Z" itemprop="datePublished">2018-02-20</time></p>
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/自主學習/">自主學習</a></p>
+                            <p class="item-title"><a href="" class="title">如何利用Hexo建立個人部落格</a></p>
+                            <p class="item-date"><time datetime="2018-02-19T20:16:31.000Z" itemprop="datePublished">2018-02-20</time></p>
                         </div>
                     </li>
                 
@@ -345,32 +326,55 @@
 
             
                 
-
-            
-                
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">arxius</h3>
+        <h3 class="widget-title">記錄</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
 
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/自主學習/">自主學習</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
 
-            
-                
 
             
                 
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">標籤</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
         <div class="widget">
             <ul>
                 
                     <li>
-                        <a href="http://hexo.io">Hexo</a>
+                        <a href="http://www.csie.ntnu.edu.tw/~u91029/">演算法筆記</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://e-tutor.itsa.org.tw/e-Tutor/">E-tutor</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://cpe.cse.nsysu.edu.tw/">CPE</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://uva.onlinejudge.org/index.php">UVa</a>
                     </li>
                 
             </ul>
@@ -393,30 +397,13 @@
                 <h1 class="logo-wrap">
                     <a href="../../../../index.html" class="logo"></a>
                 </h1>
-                <p>&copy; 2018 John Doe</p>
+                <p>&copy; 2018 LI-ZHI</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
         </div>
     </div>
 </footer>
         
-    
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    var disqus_url = 'http://yoursite.com/2018/02/20/hello-world/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-
-
 
 
     
