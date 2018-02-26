@@ -18,7 +18,7 @@
 <meta property="og:description" content="子網遮罩計算 狀況A - PC0為第一個可用IP，兩者遮罩相同，求PC1的IPPC0為192.168.1.1/29故得：  PC0的IP：192.168.1.1 PC0的子網遮罩：255.255.255.248 255.255.255.0為/24 /29會多借走5個bit則剩下3個bit 則2的3次方為8，2的8次方為256 256-8(剩下的)=248(遮罩)    透過PC0推導PC1：  P">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://i.imgur.com/7IvsLUf.png">
-<meta property="og:updated_time" content="2018-02-26T10:24:29.822Z">
+<meta property="og:updated_time" content="2018-02-26T10:30:46.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="網路基礎及Vlan複習">
 <meta name="twitter:description" content="子網遮罩計算 狀況A - PC0為第一個可用IP，兩者遮罩相同，求PC1的IPPC0為192.168.1.1/29故得：  PC0的IP：192.168.1.1 PC0的子網遮罩：255.255.255.248 255.255.255.0為/24 /29會多借走5個bit則剩下3個bit 則2的3次方為8，2的8次方為256 256-8(剩下的)=248(遮罩)    透過PC0推導PC1：  P">
@@ -216,7 +216,7 @@
 <h2 id="封包觀察"><a href="#封包觀察" class="headerlink" title="封包觀察"></a>封包觀察</h2><p><strong>交換器</strong>工作於<strong>layer 2</strong>故查看時只會看見來源及目的的<strong>Mac</strong><br><strong>路由器</strong>工作於<strong>layer 3</strong>故查看時會看見來源及目的的<strong>Mac跟IP</strong><br><strong>ICMP送出去的Type為8</strong>，目的端成功接收到後會返回，此時可知<strong>返回的Type會改為0</strong></p>
 <h2 id="交換器操作-Vlan"><a href="#交換器操作-Vlan" class="headerlink" title="交換器操作(Vlan)"></a>交換器操作(Vlan)</h2><h3 id="狀況A-一台交換器多個Vlan"><a href="#狀況A-一台交換器多個Vlan" class="headerlink" title="狀況A - 一台交換器多個Vlan"></a>狀況A - 一台交換器多個Vlan</h3><p><img src="https://i.imgur.com/LUtHpFz.png" alt=""></p>
 <p>於Switch0中輸入下列指令<br>可以發現預設已經建立五個vlan</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Switch&gt;<span class="built_in">enable</span></span><br><span class="line">Switch<span class="comment">#configure terminal</span></span><br><span class="line">Switch(config)<span class="comment">#do show vlan</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Switch&gt;enable</span><br><span class="line">Switch#configure terminal</span><br><span class="line">Switch(config)#do show vlan</span><br></pre></td></tr></table></figure>
 <hr>
 <p>輸入下列指令會先創立一個vlan15<br>再將它命名為abc</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)#vlan 15</span><br><span class="line">Switch(config-vlan)#name abc</span><br></pre></td></tr></table></figure>
@@ -243,7 +243,7 @@
 
 
 
-    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/02/26/p0002-network-0226/" data-id="cje42tlvx0003coi2kn7elv9k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/02/26/p0002-network-0226/" data-id="cje431pb70002hgi2do0lmpd0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
