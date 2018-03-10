@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>UVa練習(105, 706)之Java | 鋪碼路</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="UVa,Java" />
+    
+    <meta name="description" content="UVa 105UVa 題目　中文翻譯題目 題意分析 建築物所在的位置範圍為1~10000 每個位置上只要有最高的高度即可 只要高度與上一個位置不同就要輸出  解題說明 由於位置範圍最大只到10000所以直接開一個陣列儲存即可，為了避免要從0開始所以多加一位 1int[] datas = new int[10001];  為了知道本次解的位置範圍所以設定了最大值及最小值來儲存 12int max =">
+<meta name="keywords" content="UVa,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa練習(105, 706)之Java">
+<meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/10/p0007-UVa練習(105, 706)之Java-0310/index.html">
+<meta property="og:site_name" content="鋪碼路">
+<meta property="og:description" content="UVa 105UVa 題目　中文翻譯題目 題意分析 建築物所在的位置範圍為1~10000 每個位置上只要有最高的高度即可 只要高度與上一個位置不同就要輸出  解題說明 由於位置範圍最大只到10000所以直接開一個陣列儲存即可，為了避免要從0開始所以多加一位 1int[] datas = new int[10001];  為了知道本次解的位置範圍所以設定了最大值及最小值來儲存 12int max =">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://pbs.twimg.com/profile_images/2220852607/onlinejudgelogo2_400x400.png">
+<meta property="og:updated_time" content="2018-03-10T14:21:26.621Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa練習(105, 706)之Java">
+<meta name="twitter:description" content="UVa 105UVa 題目　中文翻譯題目 題意分析 建築物所在的位置範圍為1~10000 每個位置上只要有最高的高度即可 只要高度與上一個位置不同就要輸出  解題說明 由於位置範圍最大只到10000所以直接開一個陣列儲存即可，為了避免要從0開始所以多加一位 1int[] datas = new int[10001];  為了知道本次解的位置範圍所以設定了最大值及最小值來儲存 12int max =">
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/2220852607/onlinejudgelogo2_400x400.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+
+    <script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Paving Road of the Code</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../index.html">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://dindin00.github.io/PavingRoadOfTheCode/archives">記錄</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://dindin00.github.io/PavingRoadOfTheCode/work/index.html">作品</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://dindin00.github.io/PavingRoadOfTheCode/about/index.html">關於</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字(程式,技術...)" />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../../categories/自主學習/">自主學習</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-p0007-UVa練習(105, 706)之Java-0310" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        UVa練習(105, 706)之Java
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="" class="article-date">
+            <time datetime="2018-03-10T12:07:31.000Z" itemprop="datePublished">2018-03-10</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../tags/Java/">Java</a>, <a class="tag-link" href="../../../../tags/UVa/">UVa</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="UVa-105"><a href="#UVa-105" class="headerlink" title="UVa 105"></a>UVa 105</h2><p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=41" target="_blank" rel="noopener">UVa 題目</a>　<a href="http://luckycat.kshs.kh.edu.tw/homework/q105.htm" target="_blank" rel="noopener">中文翻譯題目</a></p>
+<h3 id="題意分析"><a href="#題意分析" class="headerlink" title="題意分析"></a>題意分析</h3><ol>
+<li>建築物所在的位置範圍為1~10000</li>
+<li>每個位置上只要有最高的高度即可</li>
+<li>只要高度與上一個位置不同就要輸出</li>
+</ol>
+<h3 id="解題說明"><a href="#解題說明" class="headerlink" title="解題說明"></a>解題說明</h3><ol>
+<li><p>由於位置範圍最大只到10000所以直接開一個陣列儲存即可，為了避免要從0開始所以多加一位</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] datas = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10001</span>];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>為了知道本次解的位置範圍所以設定了最大值及最小值來儲存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> min = <span class="number">10001</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由於題目是一次性解，結束值不清楚，所以採用<code>hasNextInt()</code>判斷是否還有整數輸入，若有則繼續讀入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">while</span> (sc.hasNextInt())&#123;</span><br><span class="line">    <span class="comment">// 此處待4.5.6說明</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>知道有整數輸入後，就開始讀每棟建築的起始位置、高度、結束位置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> left = sc.nextInt(), top = sc.nextInt(), right = sc.nextInt();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀到值後，判斷是否大於最大值及是否小於最小值，來求出本次解的位置範圍</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (min &gt; left) &#123;</span><br><span class="line">    min = left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (max &lt; right) &#123;</span><br><span class="line">    max = right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再來將目前建築的高度填入一開始所建立陣列中(注意！只需填入起始到結尾-1，因為在每次高度改變時，所輸出的位置及高度都是位置較後者的)，由於只要最高的高度，所以此時如果有大於原本陣列中的才填入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = left; i &lt; right; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (top &gt; datas[i]) &#123;</span><br><span class="line">        datas[i] = top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>宣告一個整數，用來存放目前遇到的高度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> current = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>透過最小值及最大值，逐一讀取本次解範圍內的陣列內容，只要陣列內的高度與當前高度不同，就將其設為當前高度，並輸出目前位置及高度(注意！結束需要斷行，但不需要空格)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = min; i &lt;= max; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (datas[i] != current) &#123;</span><br><span class="line">        current = datas[i];</span><br><span class="line">        <span class="keyword">if</span> (i == max) &#123;</span><br><span class="line">            System.out.println(i + <span class="string">" "</span> + current);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.print(i + <span class="string">" "</span> + current + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果有需要完整程式碼可以查看<a href="https://github.com/Dindin00/UvaExercise/blob/master/src/Main_UVa00105.java" target="_blank" rel="noopener">我的GitHub</a></p>
+<hr>
+<h2 id="UVa-706"><a href="#UVa-706" class="headerlink" title="UVa 706"></a>UVa 706</h2><p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=647" target="_blank" rel="noopener">UVa 題目</a>　<a href="http://luckycat.kshs.kh.edu.tw/homework/q706.htm" target="_blank" rel="noopener">中文翻譯題目</a></p>
+<h3 id="題意分析-1"><a href="#題意分析-1" class="headerlink" title="題意分析"></a>題意分析</h3><ol>
+<li>以計算機方式顯示數字(橫的以-顯示，直的以|顯示)</li>
+<li>每個數字的大小為使用者輸入</li>
+<li>讀取到0 0代表結束</li>
+</ol>
+<h3 id="Java語法相關技巧"><a href="#Java語法相關技巧" class="headerlink" title="Java語法相關技巧"></a>Java語法相關技巧</h3><ol>
+<li>Java中可以使用跳脫字元<code>\</code>來將後面連結的內容轉換為ASCII碼中代表的文字、數字或符號，其中<code>\0</code>所代表的為<code>null</code></li>
+<li>如果要連續且動態輸入多個一樣的字串，在Java中並沒有如同Python一樣的<code>str = str * 3</code>方式可以處理，一般都需要透過迴圈進行，可是會造成執行時間過久的問題，因此可以改用下列方式，動態產生指定長度的<code>char[]</code>再將其轉換為<code>String</code>，由於未給值的都是<code>null</code>，因此透過<code>replace()</code>將<code>null</code>替換為指定內容<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[length]).replace(<span class="string">"\0"</span>, <span class="string">"-"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="解題說明-1"><a href="#解題說明-1" class="headerlink" title="解題說明"></a>解題說明</h3><ol>
+<li><p>本次為讀到特定值結束的輸入方式，需先讀取第一次值(字的大小使用<code>nextInt()</code>讀一個整數、要顯示的數字使用<code>next()</code>讀一個連續的字串)，再來判定是否讀取到0 0(此處只判斷大小，是因為若大小為0也無法顯示)，不是0 0就進行處理，處理完需再讀取一次</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span> length = sc.nextInt();</span><br><span class="line">String datas = sc.next();</span><br><span class="line"><span class="keyword">while</span> (length != <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//此處待後續內容說明</span></span><br><span class="line">    <span class="keyword">int</span> length = sc.nextInt();</span><br><span class="line">    String datas = sc.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我將一個數字從上至下分為五個部分，分別是上邊、上內容、中邊、下內容、下邊，因此創一個[5][1]的字串陣列來分別儲存，且將內容初始化為空字串否則預設為空值(<code>null</code>)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[][] ans = &#123;&#123;<span class="string">""</span>&#125;, &#123;<span class="string">""</span>&#125;, &#123;<span class="string">""</span>&#125;, &#123;<span class="string">""</span>&#125;, &#123;<span class="string">""</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將要顯示的數字構成的字串透過單迴圈每次抓取一個數字來處理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; datas.length(); i++) &#123;</span><br><span class="line">    String current = datas.substring(i, i + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//此處待4.5說明</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抓取到數字後，判斷是哪個數字(此處我使用<code>switch</code>做處理，用<code>if</code>也可以)，依照每個數字的樣子填入陣列中，此處透過產生<code>char[]</code>並將其轉換為<code>String</code>，再利用<code>String</code>的<code>replace</code>方法將<code>null</code>置換為我們所要填入的符號。本處僅示範0的方式，其他類似如此處理就不多貼了，有需要可以參考文章最後的完整程式碼連結</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (current)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"0"</span>:</span><br><span class="line">        ans[<span class="number">0</span>][<span class="number">0</span>] += <span class="string">" "</span> + <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[length]).replace(<span class="string">"\0"</span>, <span class="string">"-"</span>) + <span class="string">" "</span>;</span><br><span class="line">        ans[<span class="number">1</span>][<span class="number">0</span>] += <span class="string">"|"</span> + <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[length]).replace(<span class="string">"\0"</span>, <span class="string">" "</span>) + <span class="string">"|"</span>;</span><br><span class="line">        ans[<span class="number">2</span>][<span class="number">0</span>] += <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[length + <span class="number">2</span>]).replace(<span class="string">"\0"</span>, <span class="string">" "</span>);</span><br><span class="line">        ans[<span class="number">3</span>][<span class="number">0</span>] += <span class="string">"|"</span> + <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[length]).replace(<span class="string">"\0"</span>, <span class="string">" "</span>) + <span class="string">"|"</span>;</span><br><span class="line">        ans[<span class="number">4</span>][<span class="number">0</span>] += <span class="string">" "</span> + <span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[length]).replace(<span class="string">"\0"</span>, <span class="string">"-"</span>) + <span class="string">" "</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每次將一個數字的內容存入陣列後，需要加入空白做分隔，且最後一個數字不需要再加空白分隔</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!(i == datas.length() - <span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++) &#123;</span><br><span class="line">        ans[j][<span class="number">0</span>] += <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將陣列內容逐一顯示出來，這裡需要注意的是上內容及下內容需要依照文字大小來重複輸出顯示，及最後一列需要多加一空白列跟其他解做分隔</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(ans[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length; j++) &#123;</span><br><span class="line">    System.out.println(ans[<span class="number">1</span>][<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(ans[<span class="number">2</span>][<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length; j++) &#123;</span><br><span class="line">    System.out.println(ans[<span class="number">3</span>][<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(ans[<span class="number">4</span>][<span class="number">0</span>]);</span><br><span class="line">System.out.println();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果有需要完整程式碼可以查看<a href="https://github.com/Dindin00/UvaExercise/blob/master/src/Main_UVa00706.java" target="_blank" rel="noopener">我的GitHub</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/10/p0007-UVa練習(105, 706)之Java-0310/" data-id="cjelffw09001jasi2u2dp24vg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+            
+                
+            
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Dindin00" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../../08/p0006-RFID的定義與組成-0308/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">RFID的定義與組成</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://pbs.twimg.com/profile_images/2220852607/onlinejudgelogo2_400x400.png)" alt="UVa練習(105, 706)之Java" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/自主學習/">自主學習</a></p>
+                            <p class="item-title"><a href="" class="title">UVa練習(105, 706)之Java</a></p>
+                            <p class="item-date"><time datetime="2018-03-10T12:07:31.000Z" itemprop="datePublished">2018-03-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/p0006-RFID的定義與組成-0308/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
+                            <p class="item-title"><a href="../../08/p0006-RFID的定義與組成-0308/" class="title">RFID的定義與組成</a></p>
+                            <p class="item-date"><time datetime="2018-03-08T02:12:31.000Z" itemprop="datePublished">2018-03-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../07/p0005-網站管理概念探討-0307/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
+                            <p class="item-title"><a href="../../07/p0005-網站管理概念探討-0307/" class="title">網站管理概念探討</a></p>
+                            <p class="item-date"><time datetime="2018-03-07T00:59:31.000Z" itemprop="datePublished">2018-03-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../05/p0004-交換器Vlan探討-0305/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
+                            <p class="item-title"><a href="../../05/p0004-交換器Vlan探討-0305/" class="title">交換器Vlan探討</a></p>
+                            <p class="item-date"><time datetime="2018-03-05T07:27:31.000Z" itemprop="datePublished">2018-03-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../04/p0003-如何在Android中使用gif圖-0304/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://media1.tenor.com/images/e9a2b43613bdde8dea94e81c4ca7e4c2/tenor.gif?itemid=5072286)" alt="如何在Android中使用gif圖" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/工作學習/">工作學習</a></p>
+                            <p class="item-title"><a href="../../04/p0003-如何在Android中使用gif圖-0304/" class="title">如何在Android中使用gif圖</a></p>
+                            <p class="item-date"><time datetime="2018-03-04T07:32:31.000Z" itemprop="datePublished">2018-03-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">記錄</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/03/">三月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/工作學習/">工作學習</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/自主學習/">自主學習</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/課堂學習/">課堂學習</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">標籤</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/CCNA/">CCNA</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Joomla/">Joomla</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/RFID/">RFID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Switch/">Switch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/UVa/">UVa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/VLSM/">VLSM</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://www.csie.ntnu.edu.tw/~u91029/">演算法筆記</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://e-tutor.itsa.org.tw/e-Tutor/">E-tutor</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://cpe.cse.nsysu.edu.tw/">CPE</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://uva.onlinejudge.org/index.php">UVa</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 LI-ZHI</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>
