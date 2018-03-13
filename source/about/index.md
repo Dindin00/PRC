@@ -5,11 +5,13 @@ date: 2018-02-20 05:55:31
 
 ## 陳禮誌 LI-ZHI,CHEN
 
+<img src="https://raw.githubusercontent.com/Dindin00/PavingRoadOfTheCode/master/source/image/myphoto.png" width="200px" align="left" style="border-radius:15px; margin-left:2%; margin-right:6%" />
+
 ##### 個人簡介
 目前還是一個大學生，已經在仁大資訊擔任工讀生，平常不時研究不同的資訊科技，並試圖將其融入生活之中，也熱於和他人分享及討論相關技術。
 
 ##### 聯絡方式
-* E-mail：[Dindin5200@gmail.com](mailto:Dindin5200@gmail.com)
+E-mail：[Dindin5200@gmail.com](mailto:Dindin5200@gmail.com)
 
 ##### 學歷
 * 致理科技大學資訊管理系 - 學士 (2015年 - 2019年)
