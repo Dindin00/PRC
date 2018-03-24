@@ -9,19 +9,19 @@
     
         <meta name="keywords" content="Java" />
     
-    <meta name="description" content="今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，以下主要就以Java中的Calendar來對日期及時間做處理與判斷。">
+    <meta name="description" content="今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，可以發現到Java最初的處理方式是以Date，不過該方法必須將所有單位都換成毫秒，在使用上我個人覺得不甚方便，因此接下來主要就以Java中的Calendar來對日期及時間做處理與判斷。 匯入類別在Java中要使用Calendar所提供的功能必須先將其類別匯入，">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在Java進行日期與時間的處理或判斷">
 <meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/13/p0009-如何在Java進行日期與時間的處理或判斷-0313/index.html">
 <meta property="og:site_name" content="鋪碼路">
-<meta property="og:description" content="今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，以下主要就以Java中的Calendar來對日期及時間做處理與判斷。">
+<meta property="og:description" content="今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，可以發現到Java最初的處理方式是以Date，不過該方法必須將所有單位都換成毫秒，在使用上我個人覺得不甚方便，因此接下來主要就以Java中的Calendar來對日期及時間做處理與判斷。 匯入類別在Java中要使用Calendar所提供的功能必須先將其類別匯入，">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/zh/8/88/Java_logo.png">
-<meta property="og:updated_time" content="2018-03-23T20:13:17.282Z">
+<meta property="og:updated_time" content="2018-03-24T13:23:39.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在Java進行日期與時間的處理或判斷">
-<meta name="twitter:description" content="今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，以下主要就以Java中的Calendar來對日期及時間做處理與判斷。">
+<meta name="twitter:description" content="今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，可以發現到Java最初的處理方式是以Date，不過該方法必須將所有單位都換成毫秒，在使用上我個人覺得不甚方便，因此接下來主要就以Java中的Calendar來對日期及時間做處理與判斷。 匯入類別在Java中要使用Calendar所提供的功能必須先將其類別匯入，">
 <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/zh/8/88/Java_logo.png">
     
 
@@ -175,15 +175,42 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，以下主要就以Java中的<code>Calendar</code>來對日期及時間做處理與判斷。</p>
-
+            <p>今天剛好遇到需要對日期及時間做特定格式處理，同時還需要進行判斷時間早晚，之前雖然有用過不過只有簡單用一次印象真的不深，索性就再上網找一找了，可以發現到Java最初的處理方式是以<code>Date</code>，不過該方法必須將所有單位都換成毫秒，在使用上我個人覺得不甚方便，因此接下來主要就以Java中的<code>Calendar</code>來對日期及時間做處理與判斷。</p>
+<h2 id="匯入類別"><a href="#匯入類別" class="headerlink" title="匯入類別"></a>匯入類別</h2><p>在Java中要使用<code>Calendar</code>所提供的功能必須先將其類別匯入，如下程式碼所示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="設定時間"><a href="#設定時間" class="headerlink" title="設定時間"></a>設定時間</h2><p>匯入完後我們必須先取得<code>Calendar</code>的實例，然後再進行時間的設定，預設取得實例後時間就為目前時間，因此若是要目前時間則不需設定，若非目前時間的話，時間設定的方式有兩種，一種為一次設定所有欄位，另一種則是一次針對一特定欄位做設定</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得Calendar實例，時間預設會為目前時間</span></span><br><span class="line">Calendar cal = Calendar.getInstance();</span><br><span class="line"><span class="comment">// 時間設定方法一：一次設定全部欄位，順序分別為年、月(月份為0~11)、日、時(24小時制)、分、秒，毫秒則需另外用方法二做設定</span></span><br><span class="line">cal.set(<span class="number">1999</span>, <span class="number">5</span>, <span class="number">26</span>, <span class="number">18</span>, <span class="number">29</span>, <span class="number">37</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 時間設定方法二：一次針對一特定欄位做設定，下列分別示範年、月(月份為0~11)、日、時(24小時制)、分、秒、毫秒</span></span><br><span class="line">cal.set(Calendar.YEAR, <span class="number">1999</span>);</span><br><span class="line"><span class="comment">// 月份為0~11，表示一月為0，二月為0，如此到十二月為11</span></span><br><span class="line"><span class="comment">// 若擔心月份設定錯誤或與一般認知誤差，可使用 Calendar.月份完整英文名稱 屬性進行設定，如：Calendar.MAY</span></span><br><span class="line">cal.set(Calendar.MONTH, <span class="number">5</span>);</span><br><span class="line">cal.set(Calendar.DATE, <span class="number">26</span>);</span><br><span class="line">cal.set(Calendar.HOUR, <span class="number">18</span>);</span><br><span class="line">cal.set(Calendar.MINUTE, <span class="number">29</span>);</span><br><span class="line">cal.set(Calendar.SECOND, <span class="number">37</span>);</span><br><span class="line">cal.set(Calendar.MILLISECOND, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="顯示時間"><a href="#顯示時間" class="headerlink" title="顯示時間"></a>顯示時間</h2><p>顯示時間的方式一樣有兩種，一種是單一顯示一個欄位的，另外一種則是顯示全部的欄位，不過顯示全部欄位的有Java設定好的樣式，若想要用自己想要的方式來顯示，則需要透過<code>SimpleDateFormat</code>來進行轉換</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 時間顯示方法一：單一顯示一個欄位，下列分別示範年、月(月份為0~11)、日、時(12小時制)、分、秒、毫秒、星期</span></span><br><span class="line">cal.get(Calendar.YEAR);</span><br><span class="line"><span class="comment">// 月份為0~11，表示一月為0，二月為0，如此到十二月為11</span></span><br><span class="line">cal.get(Calendar.MONTH);</span><br><span class="line">cal.get(Calendar.DATE);</span><br><span class="line">cal.get(Calendar.HOUR);</span><br><span class="line">cal.get(Calendar.MINUTE);</span><br><span class="line">cal.get(Calendar.SECOND);</span><br><span class="line">cal.get(Calendar.MILLISECOND);</span><br><span class="line"><span class="comment">// 星期從星期日開始計算，故1為星期日，2為星期一，如此到7為星期六</span></span><br><span class="line">cal.get(Calendar.DAY_OF_WEEK);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下列補充說明</span></span><br><span class="line"><span class="comment">// 此可以顯示目前設定的時間為當月的第幾週</span></span><br><span class="line">cal.get(Calendar.DAY_OF_WEEK_IN_MONTH);</span><br><span class="line"><span class="comment">// 此可以顯示目前設定的時間為當年的第幾天</span></span><br><span class="line">cal.get(Calendar.DAY_OF_YEAR);</span><br></pre></td></tr></table></figure>
+<p>上面看完方法一，我們接下來針對方法二進行講解，由於內容較多因此另外再此多做說明，自訂格式時，要顯示的內容可以參考下列說明，需要<strong>注意大小寫</strong>。</p>
+<ul>
+<li>G：代表年代(西元)</li>
+<li>y：代表年(僅支援西元年)</li>
+<li>M：代表月(MM會於個位數月前方補零，M則不會)</li>
+<li>d：代表日(dd會於個位數天前方補零，d則不會)</li>
+<li>h：代表時(12小時制；hh會於個位數時前方補零，h則不會)</li>
+<li>H：代表時(24小時制；HH會於個位數時前方補零，H則不會)</li>
+<li>m：代表分(mm會於個位數分前方補零，m則不會)</li>
+<li>s：代表秒(ss會於個位數秒前方補零，s則不會)</li>
+<li>S：代表毫秒(SS會於個位數毫秒前方補零，S則不會)</li>
+<li>E：代表星期</li>
+<li>z：代表時區(名稱)</li>
+<li>Z：代表時區(差距值)</li>
+<li>a：代表上下午(AM/PM)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 時間顯示方法二：顯示全部欄位，有提供預設樣式，也可以自訂</span></span><br><span class="line"><span class="comment">//此即會以預設樣式輸出(此時返回的類別為Date)</span></span><br><span class="line">cal.getTime();</span><br><span class="line"><span class="comment">//下面介紹如何自訂樣式</span></span><br><span class="line">SimpleDateFormat format = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"Gyyyy年MM月dd日E ahh點mm分ss秒 z(Z)"</span>);</span><br><span class="line">String result = format.format(calendar.getTime());</span><br><span class="line"><span class="comment">// 上方result字串結果會類似於 西元2018年03月13日星期二 下午05點37分16秒 TST(+0800)</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="運算時間"><a href="#運算時間" class="headerlink" title="運算時間"></a>運算時間</h2><p>已經會基本的設定及顯示後，我們接下來要進行時間的加減運算及大小判斷(判斷時間早晚)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 時間加減需要用到顯示方法一中的屬性來選擇設定的欄位，若要加則輸入正數，減則是輸入負數</span></span><br><span class="line">cal.add(Calendar.YEAR, <span class="number">5</span>);</span><br><span class="line">cal.add(Calendar.HOUR, -<span class="number">10</span>);</span><br><span class="line"><span class="comment">// 時間比較方法如下所示</span></span><br><span class="line"><span class="comment">// 若X時間小於(較早)Y時間則返回-1</span></span><br><span class="line"><span class="comment">// 若X時間等於Y時間則返回0</span></span><br><span class="line"><span class="comment">// 若X時間大於(較晚)Y時間則返回1</span></span><br><span class="line">calX.compareTo(calY);</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/13/p0009-如何在Java進行日期與時間的處理或判斷-0313/" data-id="cjf4dsii200257wi2uv3got93" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/13/p0009-如何在Java進行日期與時間的處理或判斷-0313/" data-id="cjf5000ib000gv0i2dfg174sy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
