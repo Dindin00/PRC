@@ -64,3 +64,6 @@ thumbnail:
     * 中文化
         * 點按Extensions>Language(s)>Installed>Install Languages>安裝zh-TW繁體中文
         * 返回將Extensions>Language(s)>Installed之下，將Default欄位的繁體中文列按下星星即可更改為繁體中文(注意上方選擇為Site是修改前台，選擇Administrator是修改後台)
+    * 啟動樣式預覽
+        * 點按擴充套件>佈景>樣式>選項>預覽模組位置>啟用中>儲存&關閉或儲存
+        * 此時在擴充套件>佈景>樣式處即可點按樣式下的眼睛查看樣板的樣式並可發現其套用的定位名稱及擺放位置與樣式等設定
