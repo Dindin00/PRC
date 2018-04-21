@@ -3,26 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>VTP探討及實作 | 鋪碼路</title>
+    <title>單臂路由概念及實作探討 | 鋪碼路</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="CCNA,Switch" />
+        <meta name="keywords" content="CCNA,Switch,Router" />
     
-    <meta name="description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
-<meta name="keywords" content="CCNA,Switch">
+    <meta name="description" content="單臂路由(Router on a Stick) 讓路由器或L3交換器以一個實體介面使用Trunk方式來繞送Vlan的資料。  一、路由器(Router)子介面(Sub-Interface) 為路由器特有的功能。 子介面為虛擬介面。 需建立於某一實體介面上。 可於一個實體介面上建立多個子介面。 可供多個Vlan設定預設閘道。 使用如int fa0/0.7指令建立。 可使用show ip int br">
+<meta name="keywords" content="CCNA,Switch,Router">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VTP探討及實作">
-<meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/19/p0011-VTP探討及實作-0319/index.html">
+<meta property="og:title" content="單臂路由概念及實作探討">
+<meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/05/p0004-單臂路由概念及實作探討-0305/index.html">
 <meta property="og:site_name" content="鋪碼路">
-<meta property="og:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta property="og:description" content="單臂路由(Router on a Stick) 讓路由器或L3交換器以一個實體介面使用Trunk方式來繞送Vlan的資料。  一、路由器(Router)子介面(Sub-Interface) 為路由器特有的功能。 子介面為虛擬介面。 需建立於某一實體介面上。 可於一個實體介面上建立多個子介面。 可供多個Vlan設定預設閘道。 使用如int fa0/0.7指令建立。 可使用show ip int br">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="https://cdn.pixabay.com/photo/2012/04/01/12/54/computer-23328_960_720.png">
-<meta property="og:updated_time" content="2018-04-08T15:09:16.946Z">
+<meta property="og:image" content="https://i.imgur.com/SyZqBpM.png">
+<meta property="og:updated_time" content="2018-04-21T16:37:55.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VTP探討及實作">
-<meta name="twitter:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
-<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2012/04/01/12/54/computer-23328_960_720.png">
+<meta name="twitter:title" content="單臂路由概念及實作探討">
+<meta name="twitter:description" content="單臂路由(Router on a Stick) 讓路由器或L3交換器以一個實體介面使用Trunk方式來繞送Vlan的資料。  一、路由器(Router)子介面(Sub-Interface) 為路由器特有的功能。 子介面為虛擬介面。 需建立於某一實體介面上。 可於一個實體介面上建立多個子介面。 可供多個Vlan設定預設閘道。 使用如int fa0/0.7指令建立。 可使用show ip int br">
+<meta name="twitter:image" content="https://i.imgur.com/SyZqBpM.png">
     
 
     
@@ -143,14 +143,14 @@
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-p0011-VTP探討及實作-0319" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-p0004-單臂路由概念及實作探討-0305" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        VTP探討及實作
+        單臂路由概念及實作探討
         </h1>
     
 
@@ -161,28 +161,91 @@
                 
     <div class="article-date">
         <a href="" class="article-date">
-            <time datetime="2018-03-19T07:25:31.000Z" itemprop="datePublished">2018-03-19</time>
+            <time datetime="2018-03-05T07:27:31.000Z" itemprop="datePublished">2018-03-05</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../tags/CCNA/">CCNA</a>, <a class="tag-link" href="../../../../tags/Switch/">Switch</a>
+        <a class="tag-link" href="../../../../tags/CCNA/">CCNA</a>, <a class="tag-link" href="../../../../tags/Router/">Router</a>, <a class="tag-link" href="../../../../tags/Switch/">Switch</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h2 id="單臂路由-Router-on-a-Stick"><a href="#單臂路由-Router-on-a-Stick" class="headerlink" title="單臂路由(Router on a Stick)"></a>單臂路由(Router on a Stick)</h2><ul>
+<li>讓<strong>路由器或L3交換器</strong>以一個實體介面使用Trunk方式來繞送Vlan的資料。<br><img src="https://i.imgur.com/SyZqBpM.png" alt=""></li>
+</ul>
+<h3 id="一、路由器-Router"><a href="#一、路由器-Router" class="headerlink" title="一、路由器(Router)"></a>一、路由器(Router)</h3><h5 id="子介面-Sub-Interface"><a href="#子介面-Sub-Interface" class="headerlink" title="子介面(Sub-Interface)"></a>子介面(Sub-Interface)</h5><ul>
+<li>為<strong>路由器</strong>特有的功能。</li>
+<li>子介面為<strong>虛擬介面</strong>。</li>
+<li>需建立於某一實體介面上。</li>
+<li>可於一個實體介面上建立多個子介面。</li>
+<li>可供多個Vlan設定預設閘道。</li>
+<li>使用如<code>int fa0/0.7</code>指令建立。</li>
+<li>可使用<code>show ip int brief</code>(不為管理者模式#時改用<code>do show ip int brief</code>指令)指令查看子介面運行狀態及IP。</li>
+</ul>
+<h5 id="路由器Trunk設定"><a href="#路由器Trunk設定" class="headerlink" title="路由器Trunk設定"></a>路由器Trunk設定</h5><ul>
+<li>需先建立子介面，且僅能於子介面上設定。</li>
+<li>使用如<code>encapsulation dot1Q 7</code>指令將該介面封裝為802.1Q的Trunk協定，並設定該介面接收哪個Vlan的資料，並將該介面傳輸出去的資料標記為特定Vlan。</li>
+<li>設定為Trunk協定的子介面即可設定IP，如此指令<code>ip address 192.168.77.254 255.255.255.0</code>。</li>
+</ul>
+<h3 id="二、L3交換器-L3-Switch"><a href="#二、L3交換器-L3-Switch" class="headerlink" title="二、L3交換器(L3 Switch)"></a>二、L3交換器(L3 Switch)</h3><h5 id="SVI-Switch-virtual-interfaces"><a href="#SVI-Switch-virtual-interfaces" class="headerlink" title="SVI(Switch virtual interfaces)"></a>SVI(Switch virtual interfaces)</h5><ul>
+<li>為<strong>L3交換器</strong>特有的功能。</li>
+<li>為虛擬介面且對應到每個號碼相同的Vlan。</li>
+<li>需先建立Vlan，建立方式如<code>vlan 7</code>指令。</li>
+<li>啟動SVI後，對應的Vlan即可設定IP作為該Vlan的預設閘道。</li>
+<li>啟動方式如<code>int vlan 7</code>指令。</li>
+<li>此處<code>vlan 7</code>及<code>int vlan 7</code><strong>與L2交換器不同</strong>。</li>
+</ul>
+<h5 id="繞送-Routing"><a href="#繞送-Routing" class="headerlink" title="繞送(Routing)"></a>繞送(Routing)</h5><ul>
+<li>設定完SVI後，需啟動饒送才可進行各Vlan之間的連線。</li>
+<li>需手動啟動，預設為關閉。</li>
+<li>啟動指令為<code>ip routing</code>(需於組態模式config下啟動)。</li>
+</ul>
+<h3 id="三、相關說明"><a href="#三、相關說明" class="headerlink" title="三、相關說明"></a>三、相關說明</h3><ul>
+<li>Trunk協定<ul>
+<li>以<code>switchport mode trunk</code>指令將該介面設定為Trunk協定。</li>
+<li>不屬於任何Vlan之中，故於使用<code>show vlan</code>或<code>do show vlan</code>指令時不會看見為Trunk協定的介面。</li>
+<li>可由<code>show run</code>或<code>do show run</code>指令查看被設定為Trunk協定的介面。</li>
+</ul>
+</li>
+<li>Trunk協定的種類：<ol>
+<li>802.1Q(預設且為通用標準)</li>
+<li>ISL(Cisco設備特有)</li>
+</ol>
+</li>
+<li>交換器的管理IP<ul>
+<li>用於遠端登入(telnet)。</li>
+<li>需設定於Vlan1內。</li>
+</ul>
+</li>
+<li>OSI 7層(OSI 7Layer)<ul>
+<li>L2(Layer 2)，資料連結層(Data Link Layer)<ul>
+<li>傳遞MAC。</li>
+<li>執行交換(Switching)功能，故有Vlan。</li>
+<li>L2交換器屬於此。</li>
+</ul>
+</li>
+<li>L3(Layer 3)，網路層(Network Layer)<ul>
+<li>傳遞IP。</li>
+<li>執行饒送(Routing)功能，故無Vlan。</li>
+<li>路由器及L3交換器屬於此。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/19/p0011-VTP探討及實作-0319/" data-id="cjg9iacig000n70i2nq0qm1r2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/05/p0004-單臂路由概念及實作探討-0305/" data-id="cjg9k8kib002i70i23asggzax" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -283,20 +346,20 @@
         
 <nav id="article-nav">
     
-        <a href="../../20/p0012-如何使用Python進行簡易網路爬蟲-0320/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="../../07/p0005-網站管理概念探討-0307/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            如何使用Python進行簡易網路爬蟲
+            網站管理概念探討
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="../../14/p0010-HTML與CSS基本觀念-0314/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../04/p0003-如何在Android中使用gif圖-0304/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">HTML與CSS基本觀念</p>
+        <p class="article-nav-title">如何在Android中使用gif圖</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
