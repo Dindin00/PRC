@@ -9,19 +9,19 @@
     
         <meta name="keywords" content="CCNA,Switch" />
     
-    <meta name="description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+    <meta name="description" content="動態偵測Trunk協定(Dynamic Trunk Protocol，DTP)交換器連接埠(port) 分為存取模式(Access)及主幹模式(Trunk)兩種。 可經由手動或動態進行設定。 可使用如show int fa0/0 switchport指令查看當前模式，顯示出來的資訊詳細說明如下： Administrative Mode： dynamic auto代表目前以動態方式決定為何模式。 s">
 <meta name="keywords" content="CCNA,Switch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交換器與Vlan深入探討">
 <meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/12/p0008-交換器與Vlan深入探討-0312/index.html">
 <meta property="og:site_name" content="鋪碼路">
-<meta property="og:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta property="og:description" content="動態偵測Trunk協定(Dynamic Trunk Protocol，DTP)交換器連接埠(port) 分為存取模式(Access)及主幹模式(Trunk)兩種。 可經由手動或動態進行設定。 可使用如show int fa0/0 switchport指令查看當前模式，顯示出來的資訊詳細說明如下： Administrative Mode： dynamic auto代表目前以動態方式決定為何模式。 s">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://cdn.pixabay.com/photo/2012/04/01/12/54/computer-23328_960_720.png">
-<meta property="og:updated_time" content="2018-03-23T20:03:04.360Z">
+<meta property="og:updated_time" content="2018-04-22T05:12:14.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交換器與Vlan深入探討">
-<meta name="twitter:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta name="twitter:description" content="動態偵測Trunk協定(Dynamic Trunk Protocol，DTP)交換器連接埠(port) 分為存取模式(Access)及主幹模式(Trunk)兩種。 可經由手動或動態進行設定。 可使用如show int fa0/0 switchport指令查看當前模式，顯示出來的資訊詳細說明如下： Administrative Mode： dynamic auto代表目前以動態方式決定為何模式。 s">
 <meta name="twitter:image" content="https://cdn.pixabay.com/photo/2012/04/01/12/54/computer-23328_960_720.png">
     
 
@@ -175,14 +175,136 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h3 id="動態偵測Trunk協定-Dynamic-Trunk-Protocol，DTP"><a href="#動態偵測Trunk協定-Dynamic-Trunk-Protocol，DTP" class="headerlink" title="動態偵測Trunk協定(Dynamic Trunk Protocol，DTP)"></a>動態偵測Trunk協定(Dynamic Trunk Protocol，DTP)</h3><h5 id="交換器連接埠-port"><a href="#交換器連接埠-port" class="headerlink" title="交換器連接埠(port)"></a>交換器連接埠(port)</h5><ul>
+<li>分為存取模式(Access)及主幹模式(Trunk)兩種。</li>
+<li>可經由手動或動態進行設定。</li>
+<li>可使用如<code>show int fa0/0 switchport</code>指令查看當前模式，顯示出來的資訊詳細說明如下：<ul>
+<li>Administrative Mode：<ul>
+<li>dynamic auto代表目前以動態方式決定為何模式。</li>
+<li>static access代表目前以手動方式決定為何模式(已被手動設定為存取模式)。</li>
+<li>trunk代表目前以手動方式決定為何模式(已被手動設定為主幹模式)。</li>
+</ul>
+</li>
+<li>Operational Mode：<ul>
+<li>static access代表目前為存取模式。</li>
+<li>trunk代表目前為主幹模式。</li>
+</ul>
+</li>
+<li>Administrative Trunking Encapsulation：<ul>
+<li>dot1q表示目前若進 行Trunk協定的封裝種類為802.1Q。</li>
+</ul>
+</li>
+<li>Access Mode VLAN：<ul>
+<li>表示該連接埠位於哪個Vlan。</li>
+</ul>
+</li>
+<li>Trunking Native Mode VLAN：<ul>
+<li>表示哪個Vlan為Native Vlan。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可使用<code>show int trunk</code>或<code>do show int trunk</code>指令查看當前有哪些連接埠為主幹模式，顯示出來的詳細資訊說明如下：<ul>
+<li>Mode：<ul>
+<li>on表示手動設定為主幹模式。</li>
+<li>auto表示動態設定為主幹模式，且參數為自動。</li>
+<li>desirable表示動態設定為主幹模式，且參數為渴望(無強制)。</li>
+</ul>
+</li>
+<li>Encapsulation：<ul>
+<li>802.1q代表是以手動設定為主幹模式。</li>
+<li>n-802.1q代表以動態(即協商negotiate)設定為主幹模式。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="手動設定"><a href="#手動設定" class="headerlink" title="手動設定"></a>手動設定</h5><ul>
+<li>使用<code>switchport mode access</code>指令可將該連接埠手動設定為存取模式。</li>
+<li>使用<code>switchport mode trunk</code>指令可將該連接埠手動設定為主幹模式。</li>
+</ul>
+<h5 id="動態設定"><a href="#動態設定" class="headerlink" title="動態設定"></a>動態設定</h5><ul>
+<li>使用<code>switchport mode dynamic auto</code>指令設定為動態自動。</li>
+<li>使用<code>switchport mode dynamic desirable</code>指令設定為動態渴望(無強制)。</li>
+<li>若要停止動態設定可使用<code>switchport nonegotiate</code>指令或手動設定。</li>
+<li>動態及手動對應模式如下表所示：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Auto</th>
+<th style="text-align:center">Desirable</th>
+<th style="text-align:center">Trunk</th>
+<th style="text-align:center">Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Auto</strong></td>
+<td style="text-align:center">access</td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">access</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Desirable</strong></td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">access</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Trunk</strong></td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">trunk</td>
+<td style="text-align:center">N/A</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Access</strong></td>
+<td style="text-align:center">access</td>
+<td style="text-align:center">access</td>
+<td style="text-align:center">N/A</td>
+<td style="text-align:center">access</td>
+</tr>
+</tbody>
+</table>
+<h3 id="原生Vlan-Native-Vlan"><a href="#原生Vlan-Native-Vlan" class="headerlink" title="原生Vlan(Native Vlan)"></a>原生Vlan(Native Vlan)</h3><h5 id="定義"><a href="#定義" class="headerlink" title="定義"></a>定義</h5><ul>
+<li>只有802.1Q的主幹協定才有，ISL的主幹協定沒有。</li>
+<li>預設Native Vlan為Vlan 1。</li>
+<li>原生Vlan不需要標記(tag)Vlan編號。</li>
+<li>沒有被標記的資料都會送往原生Vlan。</li>
+<li>會受到Vlan跳躍(Vlan hopping)方式入侵，因此建議關閉原生Vlan功能，使所有Vlan都會進行標記(tag)。</li>
+<li>可使用<code>show int trunk</code>或<code>do show int trunk</code>指令查看當前原生Vlan為哪個Vlan。</li>
+<li>也可使用如<code>show int fa0/1 switchport</code>或<code>do show int fa0/1 switchport</code>指令查看當前原生Vlan為何。</li>
+<li>所有交換器的原生Vlan必須相同，若不同會出現如<code>%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (7), with Switch FastEthernet0/1 (1).</code>錯誤訊息，前者代表目前交換器的原生Vlan，後者代表相連交換器的原生Vlan。</li>
+</ul>
+<h5 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h5><ul>
+<li>要關閉原生Vlan功能可於組態(config)模式時使用<code>vlan dot1q tag native</code>指令。</li>
+<li>修改原生Vlan要使用如<code>switchport trunk native vlan 7</code>指令。</li>
+<li>若原生Vlan有對應路由器的子介面，則必須再於路由器子介面內以如<code>encapsulation dot1Q 7 native</code>指令將子介面設定為原生Vlan。</li>
+</ul>
+<h3 id="Vlan傳送限制"><a href="#Vlan傳送限制" class="headerlink" title="Vlan傳送限制"></a>Vlan傳送限制</h3><h5 id="操作-1"><a href="#操作-1" class="headerlink" title="操作"></a>操作</h5><ul>
+<li>以<code>show int trunk</code>指令可以查看<code>Vlans allowed on trunk</code>欄位得知目前允許通過主幹協定傳送的Vlan有哪些。</li>
+<li>於設定為主幹協定的介面中使用如下指令進行Vlan限制操作：<ul>
+<li>如<code>switchport trunk allowed vlan 7</code>指令可以限制此介面的主幹協定僅傳送特定Vlan的資料。</li>
+<li>如<code>switchport trunk allowed vlan add 8</code>指令可以將特定Vlan也加入允許傳送列表中。</li>
+<li><code>switchport trunk allowed vlan all</code>指令可將所有Vlan都允許傳送，此時以<code>show int trunk</code>指令查看可發現允許的Vlan為<strong>1~1005</strong>。</li>
+<li>如<code>switchport trunk allowed vlan except 9</code>指令可將除特定Vlan外其餘Vlan皆允許傳送。</li>
+<li><code>swithcport trunk allowed vlan none</code>指令將禁止所有Vlan透過此介面的主幹協定傳送。</li>
+<li>如<code>switchport trunk allowed vlan remove 10</code>指令可將特定Vlan從允許列表中移除。</li>
+</ul>
+</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/12/p0008-交換器與Vlan深入探討-0312/" data-id="cjg9iaci5000b70i2hsx6jyo2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/12/p0008-交換器與Vlan深入探討-0312/" data-id="cjg9ojr47000ffgi2mlykxats" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
