@@ -9,19 +9,19 @@
     
         <meta name="keywords" content="CCNA,Switch" />
     
-    <meta name="description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+    <meta name="description" content="Vlan設定備份與復原(複製) Vlan設定的內容都儲存在交換器上的flash之中的vlan.dat檔內。 可使用show flash:或do show flash:指令查看flash內儲存哪些檔案。 Vlan設定內容要重現只需要複製vlan.dat檔即可。 若想要連指定哪個連接埠屬於哪個Vlan也保存，則需要儲存RAM中的run組態檔。  手動複製Vlan 可於管理者#模式下使用copy fla">
 <meta name="keywords" content="CCNA,Switch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VTP探討及實作">
 <meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/19/p0011-VTP探討及實作-0319/index.html">
 <meta property="og:site_name" content="鋪碼路">
-<meta property="og:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta property="og:description" content="Vlan設定備份與復原(複製) Vlan設定的內容都儲存在交換器上的flash之中的vlan.dat檔內。 可使用show flash:或do show flash:指令查看flash內儲存哪些檔案。 Vlan設定內容要重現只需要複製vlan.dat檔即可。 若想要連指定哪個連接埠屬於哪個Vlan也保存，則需要儲存RAM中的run組態檔。  手動複製Vlan 可於管理者#模式下使用copy fla">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://cdn.pixabay.com/photo/2012/04/01/12/54/computer-23328_960_720.png">
-<meta property="og:updated_time" content="2018-04-08T15:09:16.946Z">
+<meta property="og:updated_time" content="2018-04-22T09:27:56.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VTP探討及實作">
-<meta name="twitter:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta name="twitter:description" content="Vlan設定備份與復原(複製) Vlan設定的內容都儲存在交換器上的flash之中的vlan.dat檔內。 可使用show flash:或do show flash:指令查看flash內儲存哪些檔案。 Vlan設定內容要重現只需要複製vlan.dat檔即可。 若想要連指定哪個連接埠屬於哪個Vlan也保存，則需要儲存RAM中的run組態檔。  手動複製Vlan 可於管理者#模式下使用copy fla">
 <meta name="twitter:image" content="https://cdn.pixabay.com/photo/2012/04/01/12/54/computer-23328_960_720.png">
     
 
@@ -175,14 +175,125 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h2 id="Vlan設定備份與復原-複製"><a href="#Vlan設定備份與復原-複製" class="headerlink" title="Vlan設定備份與復原(複製)"></a>Vlan設定備份與復原(複製)</h2><ul>
+<li>Vlan設定的內容都儲存在交換器上的flash之中的vlan.dat檔內。</li>
+<li>可使用<code>show flash:</code>或<code>do show flash:</code>指令查看flash內儲存哪些檔案。</li>
+<li>Vlan設定內容要重現只需要複製vlan.dat檔即可。</li>
+<li>若想要連指定哪個連接埠屬於哪個Vlan也保存，則需要儲存RAM中的run組態檔。</li>
+</ul>
+<h3 id="手動複製Vlan"><a href="#手動複製Vlan" class="headerlink" title="手動複製Vlan"></a>手動複製Vlan</h3><ul>
+<li>可於管理者#模式下使用<code>copy flash: tftp:</code>指令將vlan.dat檔備份至TFTP Server上，輸入完該指令後需依照系統問題分別輸入預備份的檔案(此處為vlan.dat)及TFTP Server的IP。</li>
+<li>進行完備份後，可再於管理者#模式下使用<code>copy tftp: flash:</code>指令將vlan.dat檔還原或複製至目前交換器上，輸入完該指令後需依照系統問題分別輸入TFTP Server的IP及欲還原或複製的檔案(此處為vlan.dat)。</li>
+<li>還原或複製完畢後需將交換器重開才可以重現Vlan設定，由於交換器無電源開關，因此需於管理者#模式下使用<code>reload</code>指令進行重開。</li>
+</ul>
+<h3 id="VTP-Vlan-Trunk-Protocol"><a href="#VTP-Vlan-Trunk-Protocol" class="headerlink" title="VTP(Vlan Trunk Protocol)"></a>VTP(Vlan Trunk Protocol)</h3><ul>
+<li>主要用於多台交換器之間的Vlan管理。</li>
+<li>僅會傳遞vlan.dat檔更新Vlan設定資料，故將連接埠指定於何Vlan的資訊並不會傳遞。</li>
+<li>執行VTP必備條件：<ol>
+<li>交換器之間連線必須為主幹協定。</li>
+<li>交換器之間至少要有一台擔任Server(可無Client或Transparent)</li>
+<li>交換器的VTP Domain必須相同，若有設定VTP密碼也必須相同</li>
+</ol>
+</li>
+</ul>
+<h5 id="VTP模式"><a href="#VTP模式" class="headerlink" title="VTP模式"></a>VTP模式</h5><ul>
+<li>Server<ul>
+<li>預設所有交換器都為此模式。</li>
+<li><strong>可以</strong>新增、修改及刪除<strong>本地</strong>Vlan。</li>
+<li><strong>會</strong>產生VTP更新封包傳送出去。</li>
+<li>可接收VTP更新封包新增、修改及刪除<strong>本地</strong>Vlan。</li>
+<li>可於組態config模式下使用<code>vtp mode server</code>指令將目前交換器設定為VTP中的Server。</li>
+</ul>
+</li>
+<li>Client<ul>
+<li><strong>無法</strong>新增、修改及刪除<strong>本地</strong>Vlan。</li>
+<li><strong>不會</strong>產生VTP更新封包。</li>
+<li>可接收VTP更新封包新增、修改及刪除<strong>本地</strong>Vlan。</li>
+<li>可於組態config模式下使用<code>vtp mode client</code>指令將目前交換器設定為VTP中的Client。</li>
+<li>若於此模式下新增、修改及刪除Vlan會出現<code>VTP VLAN configuration not allowed when device is in CLIENT mode.</code>錯誤訊息。</li>
+</ul>
+</li>
+<li>Transparent<ul>
+<li><strong>可以</strong>新增、修改及刪除<strong>本地</strong>Vlan。</li>
+<li><strong>不會</strong>產生VTP更新封包。</li>
+<li>可接收VTP更新封包來<strong>傳送(by pass)</strong>至其他交換器。</li>
+<li>此模式下<strong>本地</strong>Vlan設定都儲存於run組態檔中，而非vlan.dat檔。</li>
+<li>可於組態config模式下使用<code>vtp mode transparent</code>指令將目前交換器設定為VTP中的Transparent。</li>
+</ul>
+</li>
+</ul>
+<h5 id="VTP狀態"><a href="#VTP狀態" class="headerlink" title="VTP狀態"></a>VTP狀態</h5><ul>
+<li>可使用<code>show vtp status</code>或<code>do show vtp status</code>查看VTP狀態，顯示詳細資訊說明如下：<ul>
+<li>VTP Version：<ul>
+<li>1代表目前使用為VTP v1。</li>
+<li>2代表目前使用為VTP v2。</li>
+<li>3代表目前使用為VTP v3。</li>
+</ul>
+</li>
+<li>Configuration Revision：<ul>
+<li>代表為目前VTP更新封包版本，數字越大版本越新，更新封包版本相同才可以互連。</li>
+</ul>
+</li>
+<li>Maximun VLANs supported locally：<ul>
+<li>代表本地最多支援多少Vlan進行VTP。</li>
+</ul>
+</li>
+<li>Number of existing VLANs：<ul>
+<li>代表目前運行於VTP中的Vlan數量。</li>
+</ul>
+</li>
+<li>VTP Operating Mode：<ul>
+<li>Server代表目前交換器於VTP中為Server模式。</li>
+<li>Client代表目前交換器於VTP中為Client模式。</li>
+<li>Transparent代表目前交換器於VTP中為Transparent模式。</li>
+</ul>
+</li>
+<li>VTP Domain Name：<ul>
+<li>代表目前VTP的Domain名稱，預設為空值(NULL)，可以如<code>vtp domain abc</code>指令設定，必須名稱相同且不為空值(NULL)VTP才能進行溝通，若發送出更新封包後遇到為空值(NULL)，會將空值(NULL)改為當前更新封包的Domain Name，並依更新封包調整Vlan設定。</li>
+</ul>
+</li>
+<li>Configuration last modified by：<ul>
+<li>此段訊息開頭的後方所接代表最後一次更新是由哪台交換器所發出的更新封包，此處會顯示為管理IP，因此若無設定管理IP則顯示0.0.0.0。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="VTP封包"><a href="#VTP封包" class="headerlink" title="VTP封包"></a>VTP封包</h5><ul>
+<li>摘要通報(Summary advertisements)封包<ul>
+<li>每三百秒由Server發送出去。</li>
+<li>或Server的<strong>本地</strong>Vlan有變動時由Server發送出去。</li>
+<li>週邊Server或Client接收到此封包後，會比對Domain Name是否相同，不同則丟棄此封包，相同則比較Revision版本，若傳送過來的較大，則會發送請求通報封包回去，反之則會發送更新封包回去。</li>
+</ul>
+</li>
+<li>請求通報(Advertisement request)封包<ul>
+<li>若摘要封包傳送過來Domain Name相同且Revision版本較大，則Server或Client會回傳此封包要求更新。</li>
+</ul>
+</li>
+<li>更新通報(Subset advertisements)封包<ul>
+<li>若收到請求通報封包，則Server會回傳更新通報封包供週邊Server或Client更新。</li>
+<li>若摘要通報封包的Revision較小，則會由Server或Client發送更新封包回去提供更新，<strong>Client僅此例外狀況會發送更新封包</strong>。</li>
+<li>接收更新封包更新後，會<strong>完全覆蓋</strong>原本vlan.dat內的Vlan設定。<ul>
+<li>因此若額外添加交換器至原本交換器群組進行VTP，需注意添加的交換器是否有設定VTP，若有則要考量要保留添加的或原本的VTP。</li>
+<li>倘若要保留原本的VTP設定，則需將添加的交換器以更換Domain Name方式進行重設。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="VTP密碼"><a href="#VTP密碼" class="headerlink" title="VTP密碼"></a>VTP密碼</h5><ul>
+<li>VTP密碼以明碼儲存於vlan.dat檔中，故同一群組交換器的VTP密碼必須相同。</li>
+<li>可於組態config模式下使用如<code>vtp password 123456</code>指令設定VTP的密碼。</li>
+<li>可使用<code>show vtp password</code>或<code>do show vtp password</code>指令查看VTP密碼。</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/19/p0011-VTP探討及實作-0319/" data-id="cjgaedun0000e3gi24n981eo7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/19/p0011-VTP探討及實作-0319/" data-id="cjgaixmp0000hwoi2rha982z0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
