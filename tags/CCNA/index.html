@@ -295,7 +295,7 @@
         <a href="../../2018/03/26/p0014-交換器的埠安全探討及實作(一)-0326/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://i.imgur.com/ZVNXabz.png)" alt="交換器的埠安全探討及實作(一)" class="thumbnail-image"></span>
     
     
         
@@ -323,7 +323,17 @@
     
 
         <p class="article-excerpt">
-            
+            交換器連接埠上的安全機制
+分為驗證使用者與密碼的IEEE 802.1x及檢查MAC的Port-Security兩種。
+
+一、IEEE 802.1x
+
+要使用802.1x作為連接埠的安全機制必須確定該連接埠設定為存取模式。
+必須搭配AAA認證伺服器驗證使用者及密碼。
+尚未驗證成功前該連接埠只接收802.1x封包，禁止其餘封包通過，包含正常封包。
+
+架構
+電腦為802.1x的Client端在此架構稱為
         </p>
     </div>
 </article>
@@ -343,7 +353,7 @@
         <a href="../../2018/03/19/p0011-VTP探討及實作-0319/" class="thumbnail">
     
     
-        <span style="background-image:url(https://cdn.pixabay.com/photo/2012/04/01/12/54/computer-23328_960_720.png)" alt="VTP探討及實作" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/px2HAG3.png)" alt="VTP探討及實作" class="thumbnail-image"></span>
     
     
         

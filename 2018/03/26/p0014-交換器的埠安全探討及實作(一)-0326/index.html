@@ -9,18 +9,20 @@
     
         <meta name="keywords" content="CCNA,Switch" />
     
-    <meta name="description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+    <meta name="description" content="交換器連接埠上的安全機制 分為驗證使用者與密碼的IEEE 802.1x及檢查MAC的Port-Security兩種。  一、IEEE 802.1x  要使用802.1x作為連接埠的安全機制必須確定該連接埠設定為存取模式。 必須搭配AAA認證伺服器驗證使用者及密碼。 尚未驗證成功前該連接埠只接收802.1x封包，禁止其餘封包通過，包含正常封包。  架構 電腦為802.1x的Client端在此架構稱為">
 <meta name="keywords" content="CCNA,Switch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交換器的埠安全探討及實作(一)">
 <meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/26/p0014-交換器的埠安全探討及實作(一)-0326/index.html">
 <meta property="og:site_name" content="鋪碼路">
-<meta property="og:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta property="og:description" content="交換器連接埠上的安全機制 分為驗證使用者與密碼的IEEE 802.1x及檢查MAC的Port-Security兩種。  一、IEEE 802.1x  要使用802.1x作為連接埠的安全機制必須確定該連接埠設定為存取模式。 必須搭配AAA認證伺服器驗證使用者及密碼。 尚未驗證成功前該連接埠只接收802.1x封包，禁止其餘封包通過，包含正常封包。  架構 電腦為802.1x的Client端在此架構稱為">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2018-04-22T05:52:42.059Z">
+<meta property="og:image" content="https://i.imgur.com/ZVNXabz.png">
+<meta property="og:updated_time" content="2018-04-22T13:50:05.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交換器的埠安全探討及實作(一)">
-<meta name="twitter:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta name="twitter:description" content="交換器連接埠上的安全機制 分為驗證使用者與密碼的IEEE 802.1x及檢查MAC的Port-Security兩種。  一、IEEE 802.1x  要使用802.1x作為連接埠的安全機制必須確定該連接埠設定為存取模式。 必須搭配AAA認證伺服器驗證使用者及密碼。 尚未驗證成功前該連接埠只接收802.1x封包，禁止其餘封包通過，包含正常封包。  架構 電腦為802.1x的Client端在此架構稱為">
+<meta name="twitter:image" content="https://i.imgur.com/ZVNXabz.png">
     
 
     
@@ -173,14 +175,82 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h2 id="交換器連接埠上的安全機制"><a href="#交換器連接埠上的安全機制" class="headerlink" title="交換器連接埠上的安全機制"></a>交換器連接埠上的安全機制</h2><ul>
+<li>分為驗證使用者與密碼的IEEE 802.1x及檢查MAC的Port-Security兩種。</li>
+</ul>
+<h3 id="一、IEEE-802-1x"><a href="#一、IEEE-802-1x" class="headerlink" title="一、IEEE 802.1x"></a>一、IEEE 802.1x</h3><p><img src="https://i.imgur.com/ZVNXabz.png" alt=""></p>
+<ul>
+<li>要使用802.1x作為連接埠的安全機制必須確定該連接埠設定為存取模式。</li>
+<li>必須搭配AAA認證伺服器驗證使用者及密碼。</li>
+<li>尚未驗證成功前該連接埠只接收802.1x封包，禁止其餘封包通過，包含正常封包。</li>
+</ul>
+<h5 id="架構"><a href="#架構" class="headerlink" title="架構"></a>架構</h5><ul>
+<li>電腦為802.1x的Client端在此架構稱為請求者(supplicant)。</li>
+<li>交換器在此架構稱為驗證者(Authenticator)。</li>
+<li>伺服器一定要使用AAA Server。</li>
+<li>電腦與交換器在交換使用者與密碼時，採用EAP(Extensible Authentication Protocol)協定，故電腦的作業系統必須支援EAP。</li>
+</ul>
+<h5 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h5><ol>
+<li>電腦連上線後交換器發出802.1x封包請求輸入驗證資訊。</li>
+<li>電腦輸入驗證資訊並傳送給交換器。</li>
+<li>交換器接收到驗證資訊傳送給AAA伺服器驗證。</li>
+<li>交換器接收到來自AAA伺服器驗證通過封包後開啟該連接埠。</li>
+</ol>
+<h3 id="埠安全-Port-Security"><a href="#埠安全-Port-Security" class="headerlink" title="埠安全(Port-Security)"></a>埠安全(Port-Security)</h3><ul>
+<li>以MAC作為連接埠檢查原則，可檢查連接埠下所接的MAC。</li>
+<li>要啟用埠安全必須將該連接埠設定為存取模式，可使用<code>switchport mode access</code>指令設定。</li>
+<li>再透過<code>switchport port-security</code>指令啟動。</li>
+<li>設定檢查的MAC稱為安全MAC(Secure MAC)。</li>
+<li>由於MAC屬於L2故要查看該連接埠(網卡)的MAC及相關資訊，可使用如<code>show int fa0/1</code>或<code>do show int fa0/1</code>指令查看。</li>
+<li>若要查看包含IP的資訊，由於IP屬於L3，故可於路由器或L3交換器上使用如<code>show ip int fa0/1</code>或<code>do show ip int fa0/1</code>指令查看。</li>
+<li>若要於Packet Tracer中查看電腦或伺服器等設備的MAC，則需點按Config頁籤，再選擇網卡即可。</li>
+</ul>
+<h5 id="安全MAC-Secure-MAC-種類"><a href="#安全MAC-Secure-MAC-種類" class="headerlink" title="安全MAC(Secure MAC)種類"></a>安全MAC(Secure MAC)種類</h5><ul>
+<li>動態安全MAC(Dynamic Secure MAC)：<ul>
+<li>預設採用此種方式，只要啟動Port-Security即會動態將學習到的MAC設為安全MAC。</li>
+<li>需經由設備封包通過於此才可以學習到。</li>
+<li>會將學習到的MAC存放於MAC Table再轉存至Secure MAC Table中，由於放至Secure MAC Table中，使其成為安全MAC，故於MAC Table上查看該MAC會為靜態(STATIC)。</li>
+<li>使用<code>clear mac-address-table</code>指令會清除MAC Table，由於MAC Table會轉存至Secure MAC Table中，故Secure MAC Table也會清空。</li>
+<li>在交換器重開時會觸發上述指令，故也會清空。</li>
+<li>可使用<code>show mac-address-table</code>或<code>do show mac-address-table</code>指令查看交換器中MAC Table所存取到的MAC有哪些，僅會儲存來源處的MAC，詳細請參閱下圖。<br><img src="https://i.imgur.com/kKP4rwh.png" alt=""></li>
+<li>可使用<code>show port-security address</code>或<code>do show port-security address</code>指令查看Secure MAC Table，顯示詳細說明如下：<ul>
+<li>Type：<ul>
+<li>DynamicConfigured代表動態取得此安全MAC。</li>
+<li>SecureConfigured代表靜態取得此安全MAC。</li>
+<li>SecureSticky代表粘滯取得此安全MAC。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>靜態安全MAC(Static Secure MAC)：<ul>
+<li>為管理者手動輸入。</li>
+<li>儲存於Secure MAC Table中，再添加至run組態檔中，也會加入MAC Table中，於MAC Table查看時可發現為靜態(STATIC)。</li>
+<li>此種類會永久存在除非被管理者手動刪除。</li>
+<li>可使用<code>clear port-security all</code>指令將Secure MAC Table完全清空。</li>
+<li>由於此種類是直接設定於Secure MAC Table中，故使用<code>clear mac-address-table</code>指令後安全MAC仍會存在。</li>
+<li>可使用如<code>switchport port-security mac-address M.M.M</code>指令靜態指定安全MAC為何。</li>
+</ul>
+</li>
+<li>粘滯安全MAC(Sticky Secure MAC)：<ul>
+<li>直接動態將學習到的MAC當作安全MAC儲存於Secure MAC Table及run組態檔中，再加入MAC Table中，於MAC Table查看時可發現為靜態(STATIC)。</li>
+<li>由於此種類會將安全MAC寫在run組態檔中，因此可藉由備份run組態檔至startup組態檔中，即可於重開後繼續使用學習到的安全MAC。</li>
+<li>需經由設備封包通過於此才可以學習到。</li>
+<li>由於此種類是動態直接加入於Secure MAC Table中，故使用<code>clear mac-address-table</code>指令後安全MAC仍會存在。</li>
+<li>可使用<code>clear port-security all</code>指令將Secure MAC Table完全清空。</li>
+<li>可使用<code>switchport port-security mac-address sticky</code>指令啟動粘滯安全MAC。</li>
+</ul>
+</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/26/p0014-交換器的埠安全探討及實作(一)-0326/" data-id="cjgaixmpc0014woi2jhw7f6m6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/03/26/p0014-交換器的埠安全探討及實作(一)-0326/" data-id="cjgavdvlz000yc0i2nwv0g3zr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
