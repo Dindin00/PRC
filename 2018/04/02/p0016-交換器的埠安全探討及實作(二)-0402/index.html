@@ -9,18 +9,20 @@
     
         <meta name="keywords" content="CCNA,Switch" />
     
-    <meta name="description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+    <meta name="description" content="埠安全(Port-Security)限制連線數目 可使用如show port-security int fa0/1或do show port-security int fa0/1指令查看特定連接埠的埠安全設定，顯示詳細內容說明如下： Port Security： Disabled代表目前該連接埠沒有啟動埠安全。 Enabled代表目前該連接埠有啟動埠安全。   Port Status： Secur">
 <meta name="keywords" content="CCNA,Switch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交換器的埠安全探討及實作(二)">
 <meta property="og:url" content="https://dindin00.github.io/PavingRoadOfTheCode/2018/04/02/p0016-交換器的埠安全探討及實作(二)-0402/index.html">
 <meta property="og:site_name" content="鋪碼路">
-<meta property="og:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta property="og:description" content="埠安全(Port-Security)限制連線數目 可使用如show port-security int fa0/1或do show port-security int fa0/1指令查看特定連接埠的埠安全設定，顯示詳細內容說明如下： Port Security： Disabled代表目前該連接埠沒有啟動埠安全。 Enabled代表目前該連接埠有啟動埠安全。   Port Status： Secur">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2018-04-22T05:52:38.248Z">
+<meta property="og:image" content="https://i.imgur.com/px2HAG3.png">
+<meta property="og:updated_time" content="2018-04-22T15:56:09.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交換器的埠安全探討及實作(二)">
-<meta name="twitter:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta name="twitter:description" content="埠安全(Port-Security)限制連線數目 可使用如show port-security int fa0/1或do show port-security int fa0/1指令查看特定連接埠的埠安全設定，顯示詳細內容說明如下： Port Security： Disabled代表目前該連接埠沒有啟動埠安全。 Enabled代表目前該連接埠有啟動埠安全。   Port Status： Secur">
+<meta name="twitter:image" content="https://i.imgur.com/px2HAG3.png">
     
 
     
@@ -173,14 +175,91 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h3 id="埠安全-Port-Security"><a href="#埠安全-Port-Security" class="headerlink" title="埠安全(Port-Security)"></a>埠安全(Port-Security)</h3><h5 id="限制連線數目"><a href="#限制連線數目" class="headerlink" title="限制連線數目"></a>限制連線數目</h5><ul>
+<li>可使用如<code>show port-security int fa0/1</code>或<code>do show port-security int fa0/1</code>指令查看特定連接埠的埠安全設定，顯示詳細內容說明如下：<ul>
+<li>Port Security：<ul>
+<li>Disabled代表目前該連接埠沒有啟動埠安全。</li>
+<li>Enabled代表目前該連接埠有啟動埠安全。</li>
+</ul>
+</li>
+<li>Port Status：<ul>
+<li>Secure-down代表目前該連接埠沒有啟動埠安全。</li>
+<li>Secure-up代表目前該連接埠有啟動埠安全。</li>
+<li>Secure-shutdown代表違反被強制關閉(error disable)。</li>
+</ul>
+</li>
+<li>Violation Mode：<ul>
+<li>Protect代表該連接埠違反時使用保護模式進行處理。</li>
+<li>Restrict代表該連接埠違反時使用限制模式進行處理。</li>
+<li>Shutdown代表該連接埠違反時使用關閉模式進行處理，預設為此。</li>
+</ul>
+</li>
+<li>Maximum MAC Addresses：<ul>
+<li>代表Secure MAC Table最大上限數目，預設為1。</li>
+</ul>
+</li>
+<li>Total MAC Addresses：<ul>
+<li>代表目前Secure MAC Table數目(包含動態、靜態及粘滯)。</li>
+</ul>
+</li>
+<li>Configured MAC Addresses：<ul>
+<li>代表靜態設定的安全MAC數。</li>
+</ul>
+</li>
+<li>Sticky MAC Addresses：<ul>
+<li>代表以粘滯學習到的安全MAC數。</li>
+</ul>
+</li>
+<li>Last Source Address:Vlan：<ul>
+<li>代表最後學習到的MAC及Vlan。</li>
+</ul>
+</li>
+<li>Security Violation Count：<ul>
+<li>代表違反規則的次數。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可使用<code>show port-security</code>或<code>do show port-security</code>指令查看當前交換器所有啟動的Port-Security狀況，顯示資訊詳細說明如下：<ul>
+<li>Port<ul>
+<li>代表設定於哪個連接埠。</li>
+</ul>
+</li>
+<li>MaxSecureAddr(Count)<ul>
+<li>代表該連接埠最大安全MAC數量。</li>
+</ul>
+</li>
+<li>CurrentAddr(Count)<ul>
+<li>代表該連接埠當前安全MAC數量。</li>
+</ul>
+</li>
+<li>SecurityViolation(Count)<ul>
+<li>代表違反規則的次數。</li>
+</ul>
+</li>
+<li>Security Action<ul>
+<li>Protect代表該連接埠違反時使用保護模式進行處理。</li>
+<li>Restrict代表該連接埠違反時使用限制模式進行處理。</li>
+<li>Shutdown代表該連接埠違反時使用關閉模式進行處理，預設為此。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可使用如<code>switchport port-security maximum 3</code>指令設定最大安全MAC數量。</li>
+</ul>
+<h5 id="違反處理"><a href="#違反處理" class="headerlink" title="違反處理"></a>違反處理</h5><ul>
+<li>保護(Protect)：會將超過安全MAC數量後學習到的安全MAC的封包丟棄，僅會傳送安全數量內所學習到的安全MAC的封包。</li>
+<li>限制(Restrict)：如同保護一樣，不過會再發送違規通知(SNMP、syslog)計入日誌，並將違規計數器(Security Violation Count)增加。</li>
+<li>關閉(Shutdown)：預設採用此模式，如同限制一樣外，會再將該連接埠變為錯誤停用(error-disabled)狀態，此時該連接埠會強制停用無法傳送任何封包，必須針對該連接埠手動輸入<code>shutdown</code>指令正常關閉，再輸入<code>no shutdown</code>指令重新啟動，才可恢復正常。</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/04/02/p0016-交換器的埠安全探討及實作(二)-0402/" data-id="cjgavdvm10014c0i2dhgj6arc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PavingRoadOfTheCode/2018/04/02/p0016-交換器的埠安全探討及實作(二)-0402/" data-id="cjgazvwfq001070i2r3z0rwor" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -396,7 +475,7 @@
                             <a href="" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://i.imgur.com/px2HAG3.png)" alt="交換器的埠安全探討及實作(二)" class="thumbnail-image"></span>
     
     
 </a>
