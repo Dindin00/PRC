@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://dindin00.github.io/PavingRoadOfTheCode/
+url: https://dindin00.github.io/PRC/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -78,5 +78,5 @@ theme: hueman
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Dindin00/PavingRoadOfTheCode.git
+  repo: https://github.com/Dindin00/PRC.git
   branch: gh-pages
