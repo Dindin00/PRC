@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>如何利用CSS在網頁中呈現圓角邊框或圖案 | 鋪碼路</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="CSS" />
+    
+    <meta name="description" content="最近又突然迷上網頁切版及網頁動畫，所以對於圓角功能的需求量還算不少，趁著現在還有動力的時候趕快就先將如何使用給記錄下來摟。 基本語法其實CSS中的圓角要實作出來很容易，語法就簡單一行border-radius而以，不過它主要是套用在邊框上，所以如果要讓圖形圓角其實就是在邊框上套用後不顯示邊框即可，因此要入門它並不是很困難，它主要的使用方式如下所示。 1234/*直接給定想要的大小(單位可為em,e">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何利用CSS在網頁中呈現圓角邊框或圖案">
+<meta property="og:url" content="https://dindin00.github.io/PRC/2018/05/22/p0027-css_border_radius/index.html">
+<meta property="og:site_name" content="鋪碼路">
+<meta property="og:description" content="最近又突然迷上網頁切版及網頁動畫，所以對於圓角功能的需求量還算不少，趁著現在還有動力的時候趕快就先將如何使用給記錄下來摟。 基本語法其實CSS中的圓角要實作出來很容易，語法就簡單一行border-radius而以，不過它主要是套用在邊框上，所以如果要讓圖形圓角其實就是在邊框上套用後不顯示邊框即可，因此要入門它並不是很困難，它主要的使用方式如下所示。 1234/*直接給定想要的大小(單位可為em,e">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://i.imgur.com/JiD3k9t.png">
+<meta property="og:updated_time" content="2018-05-22T03:15:49.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何利用CSS在網頁中呈現圓角邊框或圖案">
+<meta name="twitter:description" content="最近又突然迷上網頁切版及網頁動畫，所以對於圓角功能的需求量還算不少，趁著現在還有動力的時候趕快就先將如何使用給記錄下來摟。 基本語法其實CSS中的圓角要實作出來很容易，語法就簡單一行border-radius而以，不過它主要是套用在邊框上，所以如果要讓圖形圓角其實就是在邊框上套用後不顯示邊框即可，因此要入門它並不是很困難，它主要的使用方式如下所示。 1234/*直接給定想要的大小(單位可為em,e">
+<meta name="twitter:image" content="https://i.imgur.com/JiD3k9t.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+
+    <script src="../../../../libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Paving Road of the Code</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../index.html">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../../PRC/archives">記錄</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../../PRC/work/index.html">作品</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../../../PRC/about/index.html">關於</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字(程式,技術...)" />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../../categories/自主學習/">自主學習</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-p0027-css_border_radius" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        如何利用CSS在網頁中呈現圓角邊框或圖案
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="" class="article-date">
+            <time datetime="2018-05-22T02:17:46.000Z" itemprop="datePublished">2018-05-22</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="../../../../tags/CSS/">CSS</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>最近又突然迷上網頁切版及網頁動畫，所以對於圓角功能的需求量還算不少，趁著現在還有動力的時候趕快就先將如何使用給記錄下來摟。</p>
+<h3 id="基本語法"><a href="#基本語法" class="headerlink" title="基本語法"></a>基本語法</h3><p>其實CSS中的圓角要實作出來很容易，語法就簡單一行<code>border-radius</code>而以，不過它主要是套用在邊框上，所以如果要讓圖形圓角其實就是在邊框上套用後不顯示邊框即可，因此要入門它並不是很困難，它主要的使用方式如下所示。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*直接給定想要的大小(單位可為em,ex,pt,px)，它就會把四個角以10px進行圓角設定*/</span></span><br><span class="line"><span class="selector-tag">border-radius</span>: 10<span class="selector-tag">px</span>;</span><br><span class="line"><span class="comment">/*也可以給予百分比，特別說明的是如果正方形給予50%即可變成圓形*/</span></span><br><span class="line"><span class="selector-tag">border-radius</span>: 50%;</span><br></pre></td></tr></table></figure>
+<p>不過這樣子會將一個矩形的四個角都設定相同圓角，依照不同應用狀況，我們可能會需要針對特定角進行設定，設定方式有分兩種，一種為同時設定四個角可是值可以不同，另一種為個別單一設定各個角，語法使用如下所示。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*方法一：一次設定四個，不過值不同*/</span></span><br><span class="line"><span class="comment">/*四個值分別為左上角、右上角、右下角、左下角*/</span></span><br><span class="line"><span class="selector-tag">border-radius</span>: 10<span class="selector-tag">px</span> 0 0 50%;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*方法一延伸：可以只設定三個或兩個值*/</span></span><br><span class="line"><span class="comment">/*三個值分別為左上角、右上角與左下角、右下角*/</span></span><br><span class="line"><span class="selector-tag">border-radius</span>: 5<span class="selector-tag">px</span> 30<span class="selector-tag">px</span> 15<span class="selector-tag">px</span>;</span><br><span class="line"><span class="comment">/*兩個值分別為左上角與右下角、右上角與左下角*/</span></span><br><span class="line"><span class="selector-tag">border-radius</span>: 15<span class="selector-tag">px</span> 20%;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*方法二：個別設定各個角的值*/</span></span><br><span class="line"><span class="comment">/*左上角*/</span></span><br><span class="line"><span class="selector-tag">border-top-left-radius</span>: 5<span class="selector-tag">px</span>;</span><br><span class="line"><span class="comment">/*右上角*/</span></span><br><span class="line"><span class="selector-tag">border-top-right-radius</span>: 5<span class="selector-tag">px</span>;</span><br><span class="line"><span class="comment">/*右下角*/</span></span><br><span class="line"><span class="selector-tag">border-bottom-right-radius</span>: 5<span class="selector-tag">px</span>;</span><br><span class="line"><span class="comment">/*左下角*/</span></span><br><span class="line"><span class="selector-tag">border-bottom-left-radius</span>: 5<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="原理探討"><a href="#原理探討" class="headerlink" title="原理探討"></a>原理探討</h3><p>我們會了基本語法之後，接著要瞭解它是怎麼計算圓角的，不然怎麼會知道我應該給它多少的圓角大小。CSS中計算圓角的方式會先在<strong>邊框(下圖黑色框)</strong>的每個角落切出一條<strong>X軸與Y軸(下圖橘色線條)</strong>，再依照此兩軸交接點繪置<strong>圓形(下圖紅色圓)</strong>，而<strong>軸與邊框的距離(下圖錄色線條)</strong>即是我們前面所給的圓角大小，由此可知我們前面所給的<strong>圓角大小是圓形半徑</strong>，最後就依照此<strong>圓型邊框取代原本的直角邊框</strong>，就完成了圓角的功能。</p>
+<p><img src="https://i.imgur.com/JiD3k9t.png" alt=""></p>
+<h3 id="進階語法"><a href="#進階語法" class="headerlink" title="進階語法"></a>進階語法</h3><p>我們知道圓角大小就是圓形半徑後，一定會有人好奇那我可不可以把X軸跟Y軸分開設定，我不想要兩個都設定一樣大小，當然這是可以的，所以才有接下來的內容。其實CSS的<code>border-radius</code>允許我們最多設定兩組圓角值，這就代表我們可以把X軸跟Y軸分開來設定。語法語基本的相似，只要用<code>/</code>分割即可，<strong>前者代表X軸</strong>，<strong>後者代表Y軸</strong>。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*前後分別代表X軸與Y軸*/</span></span><br><span class="line">border-radius: 10px / 30px;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*也可以前後分別設定各個角*/</span></span><br><span class="line">border-radius: 10px 5px 20px 30px / 5px 16px 23px 19px;</span><br><span class="line">border-radius: 10px 5px 30px / 5px 16px 23px 19px;</span><br><span class="line">border-radius: 10px 20px 30px / 5px 19px;</span><br><span class="line">border-radius: 10px / 5px 16px;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*特別要注意的是針對特定角並不支援此方法*/</span></span><br><span class="line"><span class="comment">/*下方為不支援的錯誤示範*/</span></span><br><span class="line">border-top-left-radius: 5px / 35px;</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://dindin00.github.io/PRC/2018/05/22/p0027-css_border_radius/" data-id="cjhh2qv210008xci28bdoljxy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+            
+                
+            
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Dindin00" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../../21/p0026-acl_standard_acl/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">初探ACL與標準ACL</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/JiD3k9t.png)" alt="如何利用CSS在網頁中呈現圓角邊框或圖案" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/自主學習/">自主學習</a></p>
+                            <p class="item-title"><a href="" class="title">如何利用CSS在網頁中呈現圓角邊框或圖案</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T02:17:46.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../21/p0026-acl_standard_acl/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
+                            <p class="item-title"><a href="../../21/p0026-acl_standard_acl/" class="title">初探ACL與標準ACL</a></p>
+                            <p class="item-date"><time datetime="2018-05-21T08:30:18.000Z" itemprop="datePublished">2018-05-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../16/p0025-css_flex/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
+                            <p class="item-title"><a href="../../16/p0025-css_flex/" class="title">應用CSS中的Flex實戰網頁切版</a></p>
+                            <p class="item-date"><time datetime="2018-05-16T00:11:35.000Z" itemprop="datePublished">2018-05-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../14/p0024-vrrp_glbp/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
+                            <p class="item-title"><a href="../../14/p0024-vrrp_glbp/" class="title">VRRP與GLBP探討</a></p>
+                            <p class="item-date"><time datetime="2018-05-14T08:31:45.000Z" itemprop="datePublished">2018-05-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../07/p0023-etherchannel_fhrp_hsrp/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
+                            <p class="item-title"><a href="../../07/p0023-etherchannel_fhrp_hsrp/" class="title">EtherChannel深入探討與FHRP及HSRP探討</a></p>
+                            <p class="item-date"><time datetime="2018-05-07T08:17:28.000Z" itemprop="datePublished">2018-05-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">記錄</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/04/">四月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/03/">三月 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/工作學習/">工作學習</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/自主學習/">自主學習</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/課堂學習/">課堂學習</a><span class="category-list-count">20</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">標籤</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/CCNA/">CCNA</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/CSS/">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Joomla/">Joomla</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/RFID/">RFID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/RWD/">RWD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Router/">Router</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Switch/">Switch</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/UVa/">UVa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/VLSM/">VLSM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/XAMPP/">XAMPP</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://www.csie.ntnu.edu.tw/~u91029/">演算法筆記</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://e-tutor.itsa.org.tw/e-Tutor/">E-tutor</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://cpe.cse.nsysu.edu.tw/">CPE</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://uva.onlinejudge.org/index.php">UVa</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://ryanzhang0221.blogspot.tw/">fu . ERROR</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 LI-ZHI</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>
