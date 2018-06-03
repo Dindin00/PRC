@@ -3,26 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>如何在Android中使用gif圖 | 鋪碼路</title>
+    <title>二探Bootstrap 4 | 鋪碼路</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Android" />
+        <meta name="keywords" content="CSS,Bootstrap 4" />
     
-    <meta name="description" content="今天因為工作需要，需要在ImageView中放.gif格式的圖片，湊巧發現原來Android中，並不支援直接顯示gif。當然就上網找找，發現如果用原生Android方式，必須要把gif的每個畫面都轉成一張圖，然後在XML中讀入每張圖片，再透過再AnimationDrawable類別才可以完成。不過這整個相當流程相當繁瑣，於是就去找看有沒有間單的東西可以完成。就發現了這個套件 android-gif">
-<meta name="keywords" content="Android">
+    <meta name="description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
+<meta name="keywords" content="CSS,Bootstrap 4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在Android中使用gif圖">
-<meta property="og:url" content="https://dindin00.github.io/PRC/2018/03/04/p0003-如何在Android中使用gif圖-0304/index.html">
+<meta property="og:title" content="二探Bootstrap 4">
+<meta property="og:url" content="https://dindin00.github.io/PRC/2018/05/30/p0030-bootstrap_4_second/index.html">
 <meta property="og:site_name" content="鋪碼路">
-<meta property="og:description" content="今天因為工作需要，需要在ImageView中放.gif格式的圖片，湊巧發現原來Android中，並不支援直接顯示gif。當然就上網找找，發現如果用原生Android方式，必須要把gif的每個畫面都轉成一張圖，然後在XML中讀入每張圖片，再透過再AnimationDrawable類別才可以完成。不過這整個相當流程相當繁瑣，於是就去找看有沒有間單的東西可以完成。就發現了這個套件 android-gif">
+<meta property="og:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="https://media1.tenor.com/images/e9a2b43613bdde8dea94e81c4ca7e4c2/tenor.gif?itemid=5072286">
-<meta property="og:updated_time" content="2018-03-23T20:02:44.256Z">
+<meta property="og:updated_time" content="2018-05-31T17:19:06.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在Android中使用gif圖">
-<meta name="twitter:description" content="今天因為工作需要，需要在ImageView中放.gif格式的圖片，湊巧發現原來Android中，並不支援直接顯示gif。當然就上網找找，發現如果用原生Android方式，必須要把gif的每個畫面都轉成一張圖，然後在XML中讀入每張圖片，再透過再AnimationDrawable類別才可以完成。不過這整個相當流程相當繁瑣，於是就去找看有沒有間單的東西可以完成。就發現了這個套件 android-gif">
-<meta name="twitter:image" content="https://media1.tenor.com/images/e9a2b43613bdde8dea94e81c4ca7e4c2/tenor.gif?itemid=5072286">
+<meta name="twitter:title" content="二探Bootstrap 4">
+<meta name="twitter:description" content="在耕耘程式碼的路上，寫下所有的點滴，鋪造通往未來的道路。">
     
 
     
@@ -139,18 +137,18 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="../../../../categories/工作學習/">工作學習</a>
+    <a class="page-title-link" href="../../../../categories/課堂學習/">課堂學習</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-p0003-如何在Android中使用gif圖-0304" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-p0030-bootstrap_4_second" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        如何在Android中使用gif圖
+        二探Bootstrap 4
         </h1>
     
 
@@ -161,44 +159,28 @@
                 
     <div class="article-date">
         <a href="" class="article-date">
-            <time datetime="2018-03-04T07:32:31.000Z" itemprop="datePublished">2018-03-04</time>
+            <time datetime="2018-05-30T00:13:56.000Z" itemprop="datePublished">2018-05-30</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../tags/Android/">Android</a>
+        <a class="tag-link" href="../../../../tags/Bootstrap-4/">Bootstrap 4</a>, <a class="tag-link" href="../../../../tags/CSS/">CSS</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>今天因為工作需要，需要在ImageView中放.gif格式的圖片，湊巧發現原來Android中，並不支援直接顯示gif。當然就上網找找，發現如果用原生Android方式，必須要把gif的每個畫面都轉成一張圖，然後在XML中讀入每張圖片，再透過再<code>AnimationDrawable</code>類別才可以完成。不過這整個相當流程相當繁瑣，於是就去找看有沒有間單的東西可以完成。就發現了這個套件 <a href="https://github.com/koral--/android-gif-drawable" target="_blank" rel="noopener">android-gif-drawable</a>。</p>
-<hr>
-<h2 id="android-gif-drawable"><a href="#android-gif-drawable" class="headerlink" title="android-gif-drawable"></a>android-gif-drawable</h2><p>這個套件主要是可以讓Android開發者放入gif圖檔，除此也可以放入一般圖片，所以在開發時，如果遇到某一處可能為一般圖片或gif圖，就只要使用該套件提供的<code>GifImageView</code>就能兩者都套用，就可以取代掉原本的<code>ImageView</code>，並增加開發上的方便性，下面就做個簡單的範例來展示如何使用。</p>
-<hr>
-<h2 id="匯入套件"><a href="#匯入套件" class="headerlink" title="匯入套件"></a>匯入套件</h2><p>在<code>build.gradle</code>之中的<code>dependencies</code>內<strong>加入</strong>如下內容，再按下<strong>Sync Now</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile &apos;pl.droidsonroids.gif:android-gif-drawable:1.2.11&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="XML-UI"><a href="#XML-UI" class="headerlink" title="XML(UI)"></a>XML(UI)</h2><p>一開始直接先拉入一個<code>ImageView</code>然後依照你想要的樣子做設定，設定好後切換到原始碼模式，再將<code>ImageView</code>改為<code>pl.droidsonroids.gif.GifImageView</code>，因為<code>GifImageView</code>可以跟<code>ImageView</code>做一樣的設定，因此建議先設定好再直接改過來就可以了，好了後應該可以看到如下的XML原始碼。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">"tw.idv.lizhi.gifimageviewsample.MainActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">pl.droidsonroids.gif.GifImageView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/imageView"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:srcCompat</span>=<span class="string">"@drawable/sample_image"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p>如果在<code>GifImageView</code>中的app:srcCompat屬性直接設定圖片為gif，其實可以發現他是不會顯示任何圖片的，因為<code>GifImageView</code>要透過Java程式碼來設定圖片才可以，因此我們先在程式中新增一個<code>GifImageView</code>，並跟剛剛XML的<code>GifImageView</code>做連結。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GifImageView gifImageView = findViewById(R.id.imageView);</span><br></pre></td></tr></table></figure>
-<p>取得<code>GifImageView</code>後，利用<code>GifDrawable</code>將gif圖轉換成drawble，此時會發現出現紅線，主要是因為這個動作可能會產生輸出入例外，所以這時候只要用try catch包起來即可(可以利用<strong>Alt+Enter</strong>快速完成)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    GifDrawable gifDrawable = <span class="keyword">new</span> GifDrawable(getResources(), R.drawable.sample_image);</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最後透過<code>GifImageView</code>的setImageDrawble將圖片設定上去，即可收工。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gifImageView.setImageDrawable(gifDrawable);</span><br></pre></td></tr></table></figure></p>
-<p>如果需要查看範例的可以點此：<a href="https://github.com/Dindin00/GifImageViewSample" target="_blank" rel="noopener">範例</a></p>
-
+            
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://dindin00.github.io/PRC/2018/03/04/p0003-如何在Android中使用gif圖-0304/" data-id="cjhzahs5z0004asi2gewlpt5m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://dindin00.github.io/PRC/2018/05/30/p0030-bootstrap_4_second/" data-id="cjhzahs73002hasi2670s1wbq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -299,20 +281,10 @@
         
 <nav id="article-nav">
     
-        <a href="../../05/p0004-單臂路由概念及實作探討-0305/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            單臂路由概念及實作探討
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="../../../02/26/p0002-網路基礎及Vlan複習-0226/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../28/p0029-acl_extended_acl/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">網路基礎及Vlan複習</p>
+        <p class="article-nav-title">再探ACL與延伸ACL</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -331,7 +303,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../05/30/p0030-bootstrap_4_second/" class="thumbnail">
+                            <a href="" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -343,7 +315,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
-                            <p class="item-title"><a href="../../../05/30/p0030-bootstrap_4_second/" class="title">二探Bootstrap 4</a></p>
+                            <p class="item-title"><a href="" class="title">二探Bootstrap 4</a></p>
                             <p class="item-date"><time datetime="2018-05-30T00:13:56.000Z" itemprop="datePublished">2018-05-30</time></p>
                         </div>
                     </li>
@@ -351,7 +323,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../05/28/p0029-acl_extended_acl/" class="thumbnail">
+                            <a href="../../28/p0029-acl_extended_acl/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -363,7 +335,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
-                            <p class="item-title"><a href="../../../05/28/p0029-acl_extended_acl/" class="title">再探ACL與延伸ACL</a></p>
+                            <p class="item-title"><a href="../../28/p0029-acl_extended_acl/" class="title">再探ACL與延伸ACL</a></p>
                             <p class="item-date"><time datetime="2018-05-28T08:22:49.000Z" itemprop="datePublished">2018-05-28</time></p>
                         </div>
                     </li>
@@ -371,7 +343,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../05/23/p0028-bootstrap_4_first/" class="thumbnail">
+                            <a href="../../23/p0028-bootstrap_4_first/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -383,7 +355,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
-                            <p class="item-title"><a href="../../../05/23/p0028-bootstrap_4_first/" class="title">初探Bootstrap 4</a></p>
+                            <p class="item-title"><a href="../../23/p0028-bootstrap_4_first/" class="title">初探Bootstrap 4</a></p>
                             <p class="item-date"><time datetime="2018-05-23T00:05:18.000Z" itemprop="datePublished">2018-05-23</time></p>
                         </div>
                     </li>
@@ -391,7 +363,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../05/22/p0027-css_border_radius/" class="thumbnail">
+                            <a href="../../22/p0027-css_border_radius/" class="thumbnail">
     
     
         <span style="background-image:url(https://i.imgur.com/JiD3k9t.png)" alt="如何利用CSS在網頁中呈現圓角邊框或圖案" class="thumbnail-image"></span>
@@ -403,7 +375,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../../categories/自主學習/">自主學習</a></p>
-                            <p class="item-title"><a href="../../../05/22/p0027-css_border_radius/" class="title">如何利用CSS在網頁中呈現圓角邊框或圖案</a></p>
+                            <p class="item-title"><a href="../../22/p0027-css_border_radius/" class="title">如何利用CSS在網頁中呈現圓角邊框或圖案</a></p>
                             <p class="item-date"><time datetime="2018-05-22T02:17:46.000Z" itemprop="datePublished">2018-05-22</time></p>
                         </div>
                     </li>
@@ -411,7 +383,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../05/21/p0026-acl_standard_acl/" class="thumbnail">
+                            <a href="../../21/p0026-acl_standard_acl/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -423,7 +395,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../../categories/課堂學習/">課堂學習</a></p>
-                            <p class="item-title"><a href="../../../05/21/p0026-acl_standard_acl/" class="title">初探ACL與標準ACL</a></p>
+                            <p class="item-title"><a href="../../21/p0026-acl_standard_acl/" class="title">初探ACL與標準ACL</a></p>
                             <p class="item-date"><time datetime="2018-05-21T08:30:18.000Z" itemprop="datePublished">2018-05-21</time></p>
                         </div>
                     </li>
